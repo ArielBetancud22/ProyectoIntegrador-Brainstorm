@@ -198,17 +198,19 @@ public class RestauranBrainStorm {
                                 //Si se ingresa un dia anterior al dia actual del ordenador, pedira que vuelva a ingresar el dia
                                 System.out.println("\nIngrese el dia de reserva: ");
                                 DM [0]= tec.nextInt();
-                                if (DM [0] < dia){
-                                    System.out.println("\nIngrese un dia valido\n");
+                                if (DM [0] < dia || DM[0] > 30){
+                                    System.out.println("\nIngrese un dia valido");
                                 }
+                            } while ( DM[0] < dia || DM[0] > 30);
                                 //Si se ingresa un mes anterior al mes actual del ordenador, pedira que vuelva a ingresar el mes
+                            do{
                                 System.out.println("\nIngrese el mes a reservar:");
                                 DM [1]= tec.nextInt();
-                                if (DM [1] < mes){
-                                    System.out.println("Ingrese un mes valido\n");
+                                if (DM [1] < mes || DM [1] > 12){
+                                    System.out.println("Ingrese un mes valido");
                                 }
                             //Esto se repetira hasta que el ingreso sea correcto
-                            }while (DM [0] < dia || DM [1] < mes);
+                            }while (DM [1] < mes || DM [1] > 12);
                             
                             //Pedimos que dijite las horas que esten disponibles
                             do{
@@ -240,16 +242,16 @@ public class RestauranBrainStorm {
                             Thread.sleep(1 * 1000);
                             break;
                         case 3: 
-                            System.out.println("Ingrese su numero de contacto");
+                            do{
+                            System.out.println("Ingrese su nombre");
                             ID = Leer.dato();
                             //Si el ID es diferente del numero de contacto pedido en la NC dara incorrecto
-                            if (ID != NC[1]){
-                                System.out.println("Numero incorrecto");
-                            }
-                            //Si el Id es correcto se procedera a elimarse
+                            if (ID != NC[0]){
+                                
                                 if (NC[1] == null){
+                                    System.out.println("Numero incorrecto");
                                 } else {
-                                if (NC[1].contains(ID)){
+                                if (NC[0].contains(ID)){
                                     System.out.println("\n\nReserva eliminada con exito ");
                                     Arrays.fill(NC, "0");
                                     for (int i = 0; i < 3; i++){
@@ -260,11 +262,12 @@ public class RestauranBrainStorm {
                                     for (int j = 0; j < 5; j++){
                                         System.out.print(DM[j]);
                                         
+                                        }
                                     }
-
-                                }
-                             }
-                               Thread.sleep(1 * 1000); 
+                                } 
+                            }
+                            }while (ID == NC[1]);
+                            Thread.sleep(1 * 1000); 
                             
                             break;
                         default:
