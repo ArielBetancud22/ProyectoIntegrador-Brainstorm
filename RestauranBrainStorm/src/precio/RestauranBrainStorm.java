@@ -193,7 +193,7 @@ public class RestauranBrainStorm {
                             System.out.println("\nIngrese su nombre");
                             NC[0] = Leer.dato();
                             System.out.print("\nIngrese su numero de contacto: ");
-                            NC[1] = Leer.dato();;
+                            NC[1] = Leer.dato();
                             do{
                                 //Si se ingresa un dia anterior al dia actual del ordenador, pedira que vuelva a ingresar el dia
                                 System.out.println("\nIngrese el dia de reserva: ");
